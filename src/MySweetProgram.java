@@ -62,10 +62,48 @@ public class MySweetProgram {
 		String password = "password";
 		System.out.println("guess the password: ");
 		
-		Scanner scanner = new Scanner(System.in);
-		String guess = scanner.nextLine();
-		System.out.println(password.contentEquals(guess));
+		//Scanner scanner = new Scanner(System.in);
+		//String guess = scanner.nextLine();
+		//System.out.println(password.contentEquals(guess));
+		//2:01 
 		
+		//intro to OOP
+		User user = new User();
+		user.name = "Andrew";
+		user.lastName = "Trinh";
+		System.out.println(user.getFullName());
+		//objects cannot use == operator because
+		//objects in java are memory locations --> String.intern 
+		//return; //return method just ends the method it is in
+		
+		System.out.println("How old are you?");
+		Scanner scanner = new Scanner(System.in);
+		int age = Integer.parseInt(scanner.nextLine());
+		System.out.println("Cats or dogs?");
+		String animal = scanner.nextLine();
+		if(age > 12 && animal.contentEquals("dogs"))
+		{
+			System.out.println("dogs are cool!");
+		}
+		switch(animal) {
+		case "Cats":
+			System.out.println("Cats?really?");
+			break;
+		case "claire":
+		case "Claire":
+			System.out.println("No claire!");
+			break;
+		default:
+			System.out.println("Hasta la vista!");
+			break;
+		}
+		
+		//ternary operator - takes 3 operands//5 is what happens when T and 10 when F
+		int welcome = animal.contentEquals("Claire") ? 5 : 10;
+		boolean welcomes = false;
+		if(animal.toLowerCase().contentEquals("claire")) welcomes = true;
+		System.out.println("Bye, bye");
+		return;
 	}
 	
 
