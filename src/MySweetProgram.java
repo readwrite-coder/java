@@ -4,7 +4,6 @@ import java.util.List;
 
 public class MySweetProgram {
 
-	
 	public static void main(String[] args) {
 		//Inheritance: in order to pass down methods and fields from derived classes. 
 		Student s = new Student();
@@ -35,6 +34,25 @@ public class MySweetProgram {
 		for(User u : users_3) {
 			u.sayHello();
 		}
+		
+		//Constructor: like a method - something we invoke.
+		//no return type, and it invoked using the 'new' keyword.
+		//The name of the constructor has to match the name of the class.
+		//initializes value fields in class object. 
+		//there is always a default constructor that is implicitly created.
+		Student ss = new Student();
+		User su = new Student();
+		//REMEMBER: if you add custom constructor, the default constructor is not automatically created.
+		Student first_grader = new Student("Henry","Jones");
+		User villager = new Student("Tim", "Bradley");
+		List<Student> kids = new ArrayList<Student>();
+		//kids.add(villager);        //cannot add 'User' to 'Student' list.
+		kids.add(first_grader);
+		List<User> user_kids = new ArrayList<User>();
+		user_kids.add(first_grader); //can add 'Student' to 'User' list bc all Students are Users.
+		user_kids.add(villager);
+		first_grader.sayHello();
+		villager.sayHello();
 		
 		return;
 	}
