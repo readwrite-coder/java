@@ -16,7 +16,26 @@ public class MySweetProgram {
 		//static and private methods cannot be virtual. 
 		s.firstName = "Joe";
 		s.lastName = "Morten";
-		s.sayHello();
+		//s.sayHello();
+		
+		//Polymorphism: at a general level, something can morph to different things.
+		//Allows us to treat an object as different types of objects.
+		//You can treat a student and treat it as both a 'teacher' and 'User'.
+		//makes this possible: User u = new Student() .
+		//and   this possible: Student u = new Student() . 
+		
+		//Must understand the inheritance hierarchy to implement polymorphism effectively.
+		Teacher t = new Teacher();
+		t.firstName = "Terry";
+		t.lastName = "Andrews";
+		List<User> users_3 = new ArrayList<User>();
+		users_3.add(s);
+		users_3.add(t);
+		
+		for(User u : users_3) {
+			u.sayHello();
+		}
+		
 		return;
 	}
 
