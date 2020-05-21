@@ -16,7 +16,6 @@ public class User {
 	public String getFullName() {
 		return getFirstName() + " " + getLastName();
 	}
-	
 	public String getFirstName() { //getter for our private field, no way to assign value at this point
 		return firstName;
 	}
@@ -37,6 +36,17 @@ public class User {
 		for(User u : users) {
 			System.out.println("Static call id version:"+ id + " " + u.getFullName());
 		}
+	}
+	public static int searchList(List<User> users, String fn, String ln) {
+		return searchList(users, fn + " " + ln);
+	}
+	public static int searchList(List<User> users, String fullName) {
+		for(int i = 0; i < users.size(); i++) {
+			if(users.get(i).getFullName().contentEquals(fullName)) {  // == not valid bc String object does not invoke operator like primitive types.
+				return i;
+			}
+		}
+		return -1;
 	}
 	
 }

@@ -76,7 +76,9 @@ public class MySweetProgram {
 		
 		// operator overloading: methods can have different signatures,
 		// invoking different functions. must be altered at the parameter level, return type not enough.
-		
+		System.out.println(User.searchList(users,"Andrew", "Trinh"));
+		System.out.println(User.searchList(users,"Andrew", "Ulman"));
+		System.out.println(User.searchList(users,"Kevin", "Ulman"));
 		
 		//'new' creates a new instance of a class, stored in variable 'me'
 		//in Java everything is organized into classes
