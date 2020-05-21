@@ -74,11 +74,39 @@ public class MySweetProgram {
 		//within the class main resides, main static function can be called, 
 		//but not within the context of a instance of the class being defined.
 		
-		// operator overloading: methods can have different signatures,
+		// method overloading: methods can have different signatures,
 		// invoking different functions. must be altered at the parameter level, return type not enough.
 		System.out.println(User.searchList(users,"Andrew", "Trinh"));
 		System.out.println(User.searchList(users,"Andrew", "Ulman"));
 		System.out.println(User.searchList(users,"Kevin", "Ulman"));
+		
+		//method overwriting: replacing a method in a sub class, or derived class.
+		//in OOP, we can have an inheritance hierarchy. 
+		//methods are inherited from base class to derived classes.
+		//derived classes giving new versions for methods that were originially definied in base class.
+		//how to override to to-string method?
+		//toString() is also implicitly called when class object is printed to console.
+		System.out.println(teacher.toString());
+		//toString() is a system method that is the base class of all derived classes in Java.
+		//we can override the base method toString() by defining overide in our 'User' class.
+		System.out.println(teacher);
+		User uu = new User();
+		uu.setFirstName("Fred");
+		uu.setLastName("Ulman");
+		users.add(uu);
+		for(User p : users) {
+			for(User q : users) {
+				if(p.equals(q)) {
+					System.out.println(p + " has the same last name as " + q);
+				}
+			}
+		}
+		
+		System.out.println(User.searchList(users, teacher));
+		User user_z = User.findUser(users, me);
+		System.out.println(user_z);
+		User user_x = User.findUser(users_2, uu);
+		System.out.println(user_x);
 		
 		//'new' creates a new instance of a class, stored in variable 'me'
 		//in Java everything is organized into classes
