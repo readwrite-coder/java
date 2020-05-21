@@ -1,4 +1,4 @@
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class MySweetProgram {
 	
@@ -33,6 +33,38 @@ public class MySweetProgram {
 		long l = 50L;
 		float f = 20.5f;//only get error when trying to smaller larger thing in smaller thing
 		double d = 20.5; //float is smaller container than double
+		/*
+		 *  + addition
+		 *  - minus
+		 *    division
+		 *  * multiplication
+		 *  % modulus
+		 *  ++, -- changes value of variable, so type matters
+		 */
+		
+		//methods for integer class
+		Integer.max(10,20); //static method, we dont need to create an instance of a class
+		Integer.compare(4, 1);
+		String money = "300";
+		Integer a = Integer.valueOf(money);
+		int e = Integer.parseInt(money);
+		
+		String xx = "hello"; //object(instance of a class)
+		//string = new String does not need to be called as exception
+		System.out.println("should be h, "+ xx.charAt(0));
+		System.out.println("string has length: "+ xx.length());
+		System.out.println("does string xx contain el: " + xx.contains("el"));
+		System.out.println(xx.indexOf("lo", xx.indexOf("lo"+1)));
+		
+		String fullAd = "yummmm .. MY OH MY chicken pot pie";
+		System.out.println(fullAd.substring(10,18));
+		System.out.println(fullAd.contentEquals("hello"));
+		String password = "password";
+		System.out.println("guess the password: ");
+		
+		Scanner scanner = new Scanner(System.in);
+		String guess = scanner.nextLine();
+		System.out.println(password.contentEquals(guess));
 		
 	}
 	
