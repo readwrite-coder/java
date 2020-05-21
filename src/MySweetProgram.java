@@ -1,113 +1,103 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySweetProgram {
 	
 	//global variables should be final or private
+	//functions must be declared and initialized
+	//function declarations should appear at the top, near the header
 	
-	public static void function() {
-		System.out.println("this is the function method inside the mysweet program class");
-	}
+	int field_variable = 5; //when we create variable outside a method but inside a class, known as 'field'
+	
+	//fields can be public or private
 	
 	public static void main(String[] args) {
-		System.out.println("what is your name!");
-		//Scanner scanner = new Scanner(System.in);
-		//packages are what we import, java package contains util and scanner
-		//java.util.Scanner scanner = new java.util.Scanner(System.in);
-		//String name = scanner.nextLine();
-		//System.out.println("hello " + name);
+		System.out.println("Welcome to object-oriented programming!");
+		//intro to object-oriented programming
+		//create large applications without the need to code everything ourselves
+		//class defines a structure that can be instantiated many times
+		//class defines a blueprint that can be instantiated to make number objects of a type of class
+		//when we create a class we are creating a custom type
 		
-		String string = new String("This is a string");
-		System.out.println(string + ":)");
+		User me = new User();
+		//me.lastName = "Trinh";
+		//me.firstName= "Andrew";
+		//can no longer access once class-level field variables are declared private.
+		me.setFirstName("Andrew");
+		//me.lastName = "Trinh"; the field user.lastName is not visible.
+		me.setLastName("Trinh");
+		User teacher = new User();
+		teacher.setFirstName("Caleb");
+		teacher.setLastName("Curry");
 		
-		int x = 5; //primitive
-		Integer y = 5; //object (5 is autoboxed)
-		
-		final double PI = 3.14; //constant, by convention is capitalized
-		System.out.println("PI is "+ PI);
-		//PRIMITIVE TYPES:
-		boolean isPizzaDelicious = true;
-		byte b = 'C'; //based on ASCII characters
-		char c = 'Z';
-		short s = 3268; //small numbers
-		int i = 243242; //larger than short
-		long l = 50L;
-		float f = 20.5f;//only get error when trying to smaller larger thing in smaller thing
-		double d = 20.5; //float is smaller container than double
-		/*
-		 *  + addition
-		 *  - minus
-		 *    division
-		 *  * multiplication
-		 *  % modulus
-		 *  ++, -- changes value of variable, so type matters
-		 */
-		
-		//methods for integer class
-		Integer.max(10,20); //static method, we dont need to create an instance of a class
-		Integer.compare(4, 1);
-		String money = "300";
-		Integer a = Integer.valueOf(money);
-		int e = Integer.parseInt(money);
-		
-		String xx = "hello"; //object(instance of a class)
-		//string = new String does not need to be called as exception
-		System.out.println("should be h, "+ xx.charAt(0));
-		System.out.println("string has length: "+ xx.length());
-		System.out.println("does string xx contain el: " + xx.contains("el"));
-		System.out.println(xx.indexOf("lo", xx.indexOf("lo"+1)));
-		
-		String fullAd = "yummmm .. MY OH MY chicken pot pie";
-		System.out.println(fullAd.substring(10,18));
-		System.out.println(fullAd.contentEquals("hello"));
-		String password = "password";
-		System.out.println("guess the password: ");
-		
-		//Scanner scanner = new Scanner(System.in);
-		//String guess = scanner.nextLine();
-		//System.out.println(password.contentEquals(guess));
-		//2:01 
-		
-		//intro to OOP
-		User user = new User();
-		user.name = "Andrew";
-		user.lastName = "Trinh";
-		System.out.println(user.getFullName());
-		//objects cannot use == operator because
-		//objects in java are memory locations --> String.intern 
-		//return; //return method just ends the method it is in
-		
-		System.out.println("How old are you?");
-		Scanner scanner = new Scanner(System.in);
-		int age = Integer.parseInt(scanner.nextLine());
-		System.out.println("Cats or dogs?");
-		String animal = scanner.nextLine();
-		if(age > 12 && animal.contentEquals("dogs"))
-		{
-			System.out.println("dogs are cool!");
-		}
-		switch(animal) {
-		case "Cats":
-			System.out.println("Cats?really?");
-			break;
-		case "claire":
-		case "Claire":
-			System.out.println("No claire!");
-			break;
-		default:
-			System.out.println("Hasta la vista!");
-			break;
+		me.getFullName();
+		String message = me.getFullName();
+		message += " " + teacher.getFullName();
+		//working with lists of custom types.
+		List<User> users = new ArrayList<User>();
+		users.add(me);
+		users.add(teacher);
+		for(int i = 0; i < users.size(); i++) {
+			System.out.println("hi: "+ users.get(i).getFullName());
 		}
 		
-		//ternary operator - takes 3 operands//5 is what happens when T and 10 when F
-		int welcome = animal.contentEquals("Claire") ? 5 : 10;
-		boolean welcomes = false;
-		if(animal.toLowerCase().contentEquals("claire")) welcomes = true;
-		System.out.println("Bye, bye");
+		String[] firstNames = {"Josh", "Lane", "Kevin"};
+		String[] lastNames = {"Rosen", "Nelson", "Ulman"};
+		for(int i = 0; i < firstNames.length; i++) {
+			User u = new User();
+			u.setFirstName(firstNames[i]);
+			u.setLastName(lastNames[i]);
+			users.add(u);
+		}
+		//prints out all of the new objects located in our 'users' List
+		for(User p : users) {
+			System.out.println("hola " + p.getFullName());
+		}
+		//Let's create a method that takes a user as an argument.
+		//we define method 'printUser' within this class, must instantiate class to invoke method.
+		MySweetProgram m = new MySweetProgram();
+		m.printUser(users.get(0));
+		//the whole idea behind something being static is that it is attached
+		//to a class rather than an instance of a class or an object
+		//difference between 'static method' vs. 'instance method'
+		//when you define an object, you can call methods within the context of a specific object instance.
+		//static methods are called on an entire class, not object instance.
+		List<User> users_2 = new ArrayList<User>();
+		users_2.add(me);
+		users_2.add(teacher);
+		int id_users_2 = 2;
+		int id_users = 1;
+		User.printUsers(users_2, id_users_2);
+		User.printUsers(users, id_users);
+		//think about how main is a static function. 
+		//within the class main resides, main static function can be called, 
+		//but not within the context of a instance of the class being defined.
+		
+		// operator overloading: methods can have different signatures,
+		// invoking different functions. must be altered at the parameter level, return type not enough.
+		
+		
+		//'new' creates a new instance of a class, stored in variable 'me'
+		//in Java everything is organized into classes
+		
+		// 1. encapsulation 2. inheritance 3. polymorphism
+		// 3 pillars of object-oriented programming
+		//Encapsulation: hide inner details, such as with class-level variables.
+		//examples of encapsulation involve getter and setter methods that interface 
+		//with class-level variables without the need to understanding details of variable.
+		
+		
+		
 		return;
 	}
 	
-
-
+	//method here is not static and is defined within this mySweetProgram class, 
+	//we need to make an instance of it. OR how to turn it to static method?
+	public void printUser(User u) {
+		System.out.println(u.getFullName());
+	}
+	
 }
 //java is case sensitive
 //function signatures rely on different arguments that a method takes
