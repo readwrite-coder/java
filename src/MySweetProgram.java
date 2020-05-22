@@ -54,6 +54,40 @@ public class MySweetProgram {
 		first_grader.sayHello();
 		villager.sayHello();
 		
+		
+		//interfaces: way to define behavior for object to behave.
+		//class implements an interface, different than inheritance.
+		List<Talk> thingsThatTalk = new ArrayList<Talk>();
+		Student student = new Student("Andrew", "Trinh");
+		student.sayHello();
+		thingsThatTalk.add(student);
+		//interface forces a class to meet certain expectations, in this case specific methods.
+		
+		//'final' keyword for methods:
+		//what if we want a method that won't be overridden?
+		//final keyword does not allow further method overriding down inheritance hierarchy.
+		
+		//'final' keyword for classes:
+		//prevents anything from extending it.
+		
+		//Enums: list of possible values for a variable.
+		student.s_status = s.s_status.probation;
+		System.out.println(student.s_status);
+		
+		
+		// Enumeration in combination with a Switch statement
+		switch(student.s_status) {
+		case probation:
+			System.out.println("Ouch");
+			break;
+		case active:
+			System.out.println("Great!");
+			break;
+		case innactive:
+			System.out.println("come back!");
+			break;
+		}
+		
 		return;
 	}
 

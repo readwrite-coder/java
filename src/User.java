@@ -1,12 +1,15 @@
 
-public abstract class User {
+public abstract class User implements Talk{
 //adding abstract disallows instantiation of instance of class object.
 //results in programmer having to use derived class instance only.
-	
+	public enum status {active, innactive, probation}; 
+	//we just created a new type called 'status'.
 	public String firstName;
 	public String lastName;
 	public boolean verified = false;
 	private String full_name;
+	public status s_status;
+	//creating a field with type 'status', aptly named 'status' as well.
 	
 	public User() {
 		System.out.println("creating user object");
